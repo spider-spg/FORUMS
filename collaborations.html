@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Collaborations - LearnHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-600 mr-2"></i>
+                        <span class="text-2xl font-bold text-gray-900">LearnHub</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Categories</a>
+                        <a href="#" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Project Collaborations</a>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <i data-lucide="plus" class="h-4 w-4 inline mr-1"></i>
+                        Post Project
+                    </button>
+                    <button class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Login</button>
+                    <button class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Sign Up</button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-500 hover:text-gray-700 block px-3 py-2 text-base font-medium">Home</a>
+                <a href="#" class="text-gray-500 hover:text-gray-700 block px-3 py-2 text-base font-medium">Categories</a>
+                <a href="#" class="text-gray-900 hover:text-gray-700 block px-3 py-2 text-base font-medium">Project Collaborations</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900 flex items-center">
+                        <i data-lucide="users" class="h-8 w-8 text-green-600 mr-3"></i>
+                        Project Collaborations
+                    </h1>
+                    <p class="text-gray-600 mt-2">Find teammates, build amazing projects, and grow together</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        <i data-lucide="plus" class="h-5 w-5 inline mr-2"></i>
+                        Post New Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                <!-- Search -->
+                <div class="flex-1 max-w-md">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i data-lucide="search" class="h-5 w-5 text-gray-400"></i>
+                        </div>
+                        <input type="text" placeholder="Search projects..." class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-4">
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">All Types</option>
+                        <option value="paid">Paid</option>
+                        <option value="volunteer">Volunteer</option>
+                    </select>
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">All Status</option>
+                        <option value="open">Open</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">All Skills</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="react">React</option>
+                        <option value="nodejs">Node.js</option>
+                        <option value="design">UI/UX Design</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Project Card 1 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs font-medium">
+                            <i data-lucide="dollar-sign" class="h-3 w-3 inline mr-1"></i>
+                            Paid
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs font-medium">Open</span>
+                    </div>
+                    <div class="text-sm text-gray-500">2 days ago</div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">E-commerce Mobile App</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                    Looking for React Native developers to build a modern e-commerce mobile application. The project includes user authentication, product catalog, shopping cart, and payment integration.
+                </p>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-900 mb-2">Required Skills:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs">React Native</span>
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-md text-xs">JavaScript</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs">Node.js</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-xs">UI/UX</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div>
+                        <span class="text-gray-500">Duration:</span>
+                        <div class="font-medium text-gray-900">3-4 months</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500">Team size:</span>
+                        <div class="font-medium text-gray-900">4-5 people</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-2">
+                            ST
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">startup_founder</div>
+                            <div class="text-xs text-gray-500">Project Owner</div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-md text-xs font-medium">
+                            <i data-lucide="heart" class="h-3 w-3 inline mr-1"></i>
+                            Volunteer
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs font-medium">Open</span>
+                    </div>
+                    <div class="text-sm text-gray-500">1 week ago</div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Open Source Learning Platform</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                    Building an open-source platform to help students learn programming through interactive exercises. Looking for passionate developers who want to contribute to education technology.
+                </p>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-900 mb-2">Required Skills:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs">Python</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs">Django</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-xs">PostgreSQL</span>
+                        <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded-md text-xs">Docker</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div>
+                        <span class="text-gray-500">Duration:</span>
+                        <div class="font-medium text-gray-900">6+ months</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500">Team size:</span>
+                        <div class="font-medium text-gray-900">6-8 people</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-2">
+                            ED
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">edu_tech_dev</div>
+                            <div class="text-xs text-gray-500">Project Owner</div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs font-medium">
+                            <i data-lucide="dollar-sign" class="h-3 w-3 inline mr-1"></i>
+                            Paid
+                        </span>
+                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-md text-xs font-medium">In Progress</span>
+                    </div>
+                    <div class="text-sm text-gray-500">3 days ago</div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">AI-Powered Chat Bot</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                    Developing an intelligent chatbot for customer service using natural language processing. Need experienced ML engineers and backend developers to join our team.
+                </p>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-900 mb-2">Required Skills:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs">Python</span>
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-md text-xs">TensorFlow</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs">NLP</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-xs">FastAPI</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div>
+                        <span class="text-gray-500">Duration:</span>
+                        <div class="font-medium text-gray-900">4-5 months</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500">Team size:</span>
+                        <div class="font-medium text-gray-900">3-4 people</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-2">
+                            AI
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">ai_innovator</div>
+                            <div class="text-xs text-gray-500">Project Owner</div>
+                        </div>
+                    </div>
+                    <button class="bg-gray-400 text-white px-4 py-2 rounded-lg text-sm font-medium cursor-not-allowed">
+                        Team Full
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-md text-xs font-medium">
+                            <i data-lucide="heart" class="h-3 w-3 inline mr-1"></i>
+                            Volunteer
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs font-medium">Open</span>
+                    </div>
+                    <div class="text-sm text-gray-500">5 days ago</div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Personal Finance Tracker</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                    Creating a web application to help people track their expenses and manage budgets. Great project for portfolio building and learning full-stack development.
+                </p>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-900 mb-2">Required Skills:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs">React</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs">Node.js</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-xs">MongoDB</span>
+                        <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded-md text-xs">Chart.js</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div>
+                        <span class="text-gray-500">Duration:</span>
+                        <div class="font-medium text-gray-900">2-3 months</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500">Team size:</span>
+                        <div class="font-medium text-gray-900">3-4 people</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-2">
+                            FD
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">fintech_dev</div>
+                            <div class="text-xs text-gray-500">Project Owner</div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs font-medium">
+                            <i data-lucide="dollar-sign" class="h-3 w-3 inline mr-1"></i>
+                            Paid
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs font-medium">Open</span>
+                    </div>
+                    <div class="text-sm text-gray-500">1 day ago</div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Social Media Dashboard</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                    Building a comprehensive dashboard for managing multiple social media accounts. Need frontend and backend developers with experience in API integrations.
+                </p>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-900 mb-2">Required Skills:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs">Vue.js</span>
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-md text-xs">Laravel</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs">MySQL</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-xs">API Design</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div>
+                        <span class="text-gray-500">Duration:</span>
+                        <div class="font-medium text-gray-900">3-4 months</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500">Team size:</span>
+                        <div class="font-medium text-gray-900">4-5 people</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-2">
+                            SM
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">social_media_pro</div>
+                            <div class="text-xs text-gray-500">Project Owner</div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project Card 6 -->
+            <div class="bg-white rounded-xl shadow-sm p-6 card-hover">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center space-x-2">
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-md text-xs font-medium">
+                            <i data-lucide="heart" class="h-3 w-3 inline mr-1"></i>
+                            Volunteer
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs font-medium">Open</span>
+                    </div>
+                    <div class="text-sm text-gray-500">4 days ago</div>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Climate Data Visualization</h3>
+                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                    Creating interactive visualizations for climate change data to raise awareness. Perfect for data science enthusiasts who want to make a positive impact.
+                </p>
+
+                <div class="mb-4">
+                    <h4 class="text-sm font-medium text-gray-900 mb-2">Required Skills:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-md text-xs">Python</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded-md text-xs">D3.js</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-md text-xs">Pandas</span>
+                        <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded-md text-xs">Data Science</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div>
+                        <span class="text-gray-500">Duration:</span>
+                        <div class="font-medium text-gray-900">2-3 months</div>
+                    </div>
+                    <div>
+                        <span class="text-gray-500">Team size:</span>
+                        <div class="font-medium text-gray-900">3-4 people</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-2">
+                            CL
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-gray-900">climate_researcher</div>
+                            <div class="text-xs text-gray-500">Project Owner</div>
+                        </div>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12">
+            <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-medium transition-colors">
+                Load More Projects
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
